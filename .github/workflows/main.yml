@@ -16,3 +16,7 @@ jobs:
        MSBuild.exe $Env:GITHUB_WORKSPACE\InteractiveMatrix\InteractiveMatrix.csproj /t:Restore
        MSBuild.exe $Env:GITHUB_WORKSPACE\InteractiveMatrix\InteractiveMatrix.csproj /t:Build
 
+    - uses: actions/upload-artifact@master
+      with:
+        name: InteractiveMatrix
+        path: InteractiveMatrix\bin\Debug\InteractiveMatrix.exe
