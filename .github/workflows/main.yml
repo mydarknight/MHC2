@@ -13,5 +13,5 @@ jobs:
 
     - name: Build InteractiveMatrix
       run: |
-       MSBuild.exe $Env:GITHUB_WORKSPACE\InteractiveMatrix\InteractiveMatrix.csproj
+       MSBuild.exe $Env:GITHUB_WORKSPACE\InteractiveMatrix\InteractiveMatrix.csproj /t:Restore;Build
 
