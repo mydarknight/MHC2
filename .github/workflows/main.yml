@@ -14,9 +14,19 @@ jobs:
     - name: Build InteractiveMatrix
       run: |
        MSBuild.exe $Env:GITHUB_WORKSPACE\InteractiveMatrix\InteractiveMatrix.csproj /t:Restore
-       MSBuild.exe $Env:GITHUB_WORKSPACE\InteractiveMatrix\InteractiveMatrix.csproj /t:Build
+       MSBuild.exe $Env:GITHUB_WORKSPACE\InteractiveMatrix\InteractiveMatrix.csproj /t:Build /p:Configuration="Debug;Release"
+
+    - name: Build MHC2Gen
+      run: |
+       MSBuild.exe $Env:GITHUB_WORKSPACE\InteractiveMatrix\MHC2Gen.csproj /t:Restore
+       MSBuild.exe $Env:GITHUB_WORKSPACE\InteractiveMatrix\MHC2Gen.csproj /t:Build /p:Configuration="Debug;Release"
 
     - uses: actions/upload-artifact@master
       with:
-        name: InteractiveMatrix
-        path: InteractiveMatrix\bin\Debug\InteractiveMatrix.exe
+        name: "InteractiveMatrix" 
+        path: InteractiveMatrix\bin\*
+
+    - uses: actions/upload-artifact@master
+      with:
+        name: "MHC2Gen" 
+        path: MHC2Gen\bin\*
