@@ -6,7 +6,12 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
+    
+    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v1.0.2
+
     - name: Build InteractiveMatrix
       run: |
-       cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
-       .\MSBuild.exe $Env:GITHUB_WORKSPACE\InteractiveMatrix\InteractiveMatrix.csproj
+       MSBuild.exe $Env:GITHUB_WORKSPACE\InteractiveMatrix\InteractiveMatrix.csproj
+
