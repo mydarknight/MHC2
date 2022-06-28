@@ -14,12 +14,12 @@ jobs:
     - name: Build InteractiveMatrix
       run: |
        MSBuild.exe $Env:GITHUB_WORKSPACE\InteractiveMatrix\InteractiveMatrix.csproj /t:Restore
-       MSBuild.exe $Env:GITHUB_WORKSPACE\InteractiveMatrix\InteractiveMatrix.csproj /t:Build /p:Configuration="Debug;Release"
+       MSBuild.exe $Env:GITHUB_WORKSPACE\InteractiveMatrix\InteractiveMatrix.csproj /t:Build /p:Configuration='"'Debug;Release'"'
 
     - name: Build MHC2Gen
       run: |
        MSBuild.exe $Env:GITHUB_WORKSPACE\InteractiveMatrix\MHC2Gen.csproj /t:Restore
-       MSBuild.exe $Env:GITHUB_WORKSPACE\InteractiveMatrix\MHC2Gen.csproj /t:Build /p:Configuration="Debug;Release"
+       MSBuild.exe $Env:GITHUB_WORKSPACE\InteractiveMatrix\MHC2Gen.csproj /t:Build /p:Configuration='"'Debug;Release'"'
 
     - uses: actions/upload-artifact@master
       with:
