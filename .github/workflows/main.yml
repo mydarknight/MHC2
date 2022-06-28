@@ -19,9 +19,9 @@ jobs:
 
     - name: Build MHC2Gen
       run: |
-       MSBuild.exe $Env:GITHUB_WORKSPACE\InteractiveMatrix\MHC2Gen.csproj /t:Restore
-       MSBuild.exe $Env:GITHUB_WORKSPACE\InteractiveMatrix\MHC2Gen.csproj /t:Build /p:Configuration=Debug
-       MSBuild.exe $Env:GITHUB_WORKSPACE\InteractiveMatrix\MHC2Gen.csproj /t:Build /p:Configuration=Release
+       MSBuild.exe $Env:GITHUB_WORKSPACE\MHC2Gen\MHC2Gen.csproj /t:Restore
+       MSBuild.exe $Env:GITHUB_WORKSPACE\MHC2Gen\MHC2Gen.csproj /t:Build /p:Configuration=Debug
+       MSBuild.exe $Env:GITHUB_WORKSPACE\MHC2Gen\MHC2Gen.csproj /t:Build /p:Configuration=Release
 
     - uses: actions/upload-artifact@master
       with:
