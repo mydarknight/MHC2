@@ -19,6 +19,9 @@ jobs:
 
     - name: Build MHC2Gen
       run: |
+       cmd.exe /c md $Env:GITHUB_WORKSPACE\lcms2\bin\
+       curl.exe -O https://github.com/dantmnf/AMDColorTweaks/releases/download/ci-build/AMDColorTweaks.zip --output-dir $Env:GITHUB_WORKSPACE\lcms2\bin\
+       tar.exe -xzvf $Env:GITHUB_WORKSPACE\lcms2\bin\AMDColorTweaks.zip -C $Env:GITHUB_WORKSPACE\lcms2\bin\
        MSBuild.exe $Env:GITHUB_WORKSPACE\MHC2Gen\MHC2Gen.csproj /t:Restore
        MSBuild.exe $Env:GITHUB_WORKSPACE\MHC2Gen\MHC2Gen.csproj /t:Build /p:Configuration=Debug
        MSBuild.exe $Env:GITHUB_WORKSPACE\MHC2Gen\MHC2Gen.csproj /t:Build /p:Configuration=Release
